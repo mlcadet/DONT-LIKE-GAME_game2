@@ -1,0 +1,98 @@
+.bodyContainer{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: space-between;
+    background-size: 100%;
+    background-color: black;
+    color: #2F4F4F;
+    margin: 0 auto;
+    font-family: 'Share Tech Mono', monospace;
+    
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+
+.mainCharacterView{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    }
+    .left{
+    
+    }
+    .right{
+        
+    }
+
+    
+.nameBox {
+    border: 1px solid black;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+
+}
+
+.playerImage{
+    border: 1px solid black;
+    width: 30vw;
+    height: 40vh;
+    background-image: url("https://img.freepik.com/free-vector/dark-hexagonal-background-with-gradient-color_79603-1410.jpg?t=st=1734718314~exp=1734721914~hmac=aee34f469eb0f562468a3b8192082e15cf5022cee6e4ae96b6a821d81901cbed");
+    background-size: cover ;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 20px 10px #2F4F4F;
+    
+
+    
+}
+.playerStats{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 15vw;
+    height: 15vh;
+    text-align: center;
+    font-size: 1.5em;
+    box-shadow: 0px 0px 20px 10px #2F4F4F;
+    border-radius: 2%;
+
+
+}
+.enemyImage{
+    border: 1px solid black;
+    width: 30vw;
+    height: 35vh;
+    background-image: url("https://img.freepik.com/free-vector/partially-lit-technological-honeycomb-background_52683-23143.jpg?t=st=1734718314~exp=1734721914~hmac=58e3fe8762c82660792d461c0ab67a7c3e96d122d70f1f5dd01a621094c09f1e");
+    background-size: cover ;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 20px 10px #2F4F4F;
+    
+
+    
+}
+.enemyStats{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 15vw;
+    height: 15vh;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.5em;
+    box-shadow: 0px 0px 20px 10px #2F4F4F;
+
+}
+
