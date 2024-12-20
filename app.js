@@ -4,12 +4,20 @@ let alienStuGame = {
     hull: -20,
     firePower: -5,
     accuracy: -0.7,
-    attack() {
-        let attachChance = Math.random();
-        if (attachChance <= this.accuracy) {
-            return true;
-        } else {
-            return false:
-        }
-    },
-};
+    isAlive: true,
+    attack(target) {
+        
+    }
+//     attack() {
+//         let attachChance = Math.random();
+//         if (attachChance <= this.accuracy) {
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     },
+// };
+
+
+
+//Setting the Alien Ship objects

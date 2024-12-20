@@ -42,7 +42,7 @@
 
 }
 
-.playerImage{
+.spaceshipImage{
     border: 1px solid black;
     width: 30vw;
     height: 40vh;
@@ -55,7 +55,7 @@
 
     
 }
-.playerStats{
+.spaceshipStats{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +69,7 @@
 
 
 }
-.enemyImage{
+.alienImage{
     border: 1px solid black;
     width: 30vw;
     height: 35vh;
@@ -82,7 +82,7 @@
 
     
 }
-.enemyStats{
+.alienStats{
     display: flex;
     justify-content: center;
     align-items: center;
