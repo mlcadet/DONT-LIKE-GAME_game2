@@ -22,15 +22,22 @@ let alienStuGame = {
 //Setting the Class Alien Ship objects with constructor
 class AlienShip {
     constructor (name, hull, firePower, accuracy) {
-        this.name = name;
+        this.name = name;               //use the this keyword to refer to the instance being created
         this.hull = hull;
         this.firePower = firePower;
         this.accuracy = accuracy;
-
-        console.log('name:' + name)
+        
+       
     }
 }
-let alienShip = new AlienShip();        //Create a new instance of AlienShip (AS)
+let alienShip = new AlienShip('ship1', 'survive');        //Create a new instance of AlienShip (AS)
+console.log('alienShip: ' + alienShip.name + ' ' + alienShip.hull);
+
+let alienShip2 = new AlienShip('ship2', 'survive');       //Static Property
+console.log(alienShip.name + ' ' + alienShip2.name);
+
+
+
 
 
 //Setting the Alien Ship objects
