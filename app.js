@@ -8,6 +8,9 @@ let alienStuGame = {
     attack(target) {
         
     }
+}
+
+console.log('attack');
 //     attack() {
 //         let attachChance = Math.random();
 //         if (attachChance <= this.accuracy) {
