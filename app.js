@@ -57,6 +57,37 @@ class Ship {
     }
 }
 
+
+///////////// Building the Alien SpaceShip - game object 
+let gameObject = {
+    targetShip: 0,
+    round: 0,
+    userInput: ""
+}
+
+//Setting the array to hold Alien Spaceship
+
+const alienShips = [];                      //six alien ships
+const alienHullValues = [3, 4, 5, 6];       // hullValues between 3 and 6
+const alienFirePowerValues = [2, 3, 4];     //firepower between 2 and 4
+const alienAccValues = [0.6, 0.7, 0.8];     //Accuracy between 0.6 and 0.8
+
+let createAlienShip = () => {
+    for (let i = 0; i < 6; i++) {
+        let name = "Alien Ship number" + (i + 1);                                   //Six alien ships
+        let hull = alienHullValues[Math.floor(Math.random() * 4) + 3];              //Random hul between 3 and 6
+        let firePower = alienFirePowerValues[Math.floor(Math.random() * 3) + 2];    //Random accuracy between 2 and 4
+        let accuracy = Math.random() * 0.2 + 0.6;                                   //Random accuracy between 0.6 and 0.8 
+        let alienShips = new Ship(name, hull, firePower, accuracy);
+        alienShips.push(alienShip);
+
+    }
+          
+};
+
+
+
+
 // let alienShip = new AlienShip('ship1', 'survive');        //Create a new instance of AlienShip (AS)
 // console.log('alienShip: ' + alienShip.name + ' ' + alienShip.hull);
 
@@ -73,6 +104,7 @@ class Ship {
 
 //Using "extends" keyword to inherit all methods from another class
 class PlayerShip extends Ship {
+    
 
 
 }
