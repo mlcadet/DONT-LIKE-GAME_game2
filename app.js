@@ -20,22 +20,22 @@ let alienStuGame = {
 
 
 //Setting the Class Alien Ship objects with constructor
-class AlienShip {
-    constructor (name, hull, firePower, accuracy) {
-        this.name = name;               //use the this keyword to refer to the instance being created
-        this.hull = hull;
-        this.firePower = firePower;
-        this.accuracy = accuracy;    
-    }
-    attack() {
-        let accuracyCheck = Math.random();  //Math.radom checking accuracy - if the attack hits the target ship based on accuracy
-        if (accuracyCheck <= this.accuracy) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-}
+// class AlienShip {
+//     constructor (name, hull, firePower, accuracy) {
+//         this.name = name;               //use the this keyword to refer to the instance being created
+//         this.hull = hull;
+//         this.firePower = firePower;
+//         this.accuracy = accuracy;    
+//     }
+//     attack() {
+//         let accuracyCheck = Math.random();  //Math.radom checking accuracy - if the attack hits the target ship based on accuracy
+//         if (accuracyCheck <= this.accuracy) {
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     }
+// }
 
 class Ship {
     constructor (hull, firePower, accuracy) {
@@ -52,7 +52,7 @@ class Ship {
             
         } else {
             console.log("Attack missed!");
-            
+
         }
     }
 }
