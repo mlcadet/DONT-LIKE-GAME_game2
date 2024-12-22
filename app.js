@@ -1,8 +1,49 @@
 //Create Math Function to generate number  ??Accuracy??
 const getRandomIntInclusive = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    min = Math.ceil(min);           //
+    max = Math.floor(max);          //Math.floor() generate integer values with more control over their range
+    return Math.floor(Math.random() * (max - min + 1) + min);   //Math.random() returns a pseudo-random floating-point number between 0 and 1
+}                                   //The maximum is exclusive and the minimum is inclusive   
+console.log(Math.ceil(3, 7));   //output 3
+console.log(Math.floor(3, 7));  //output 3
+console.log(getRandomIntInclusive(1, 6)) //output 2
+
+//Initializing the DOM
+const spacemanShip = document.getElementById("spaceman-ship");
+const spacemanShipHull = document.getElementById("spaceman-ship-hull");
+const spacemanShipFirePower = document.getElementById("spaceman-ship-firePower");
+const spacemanShipAccuracy = document.getElementById("spaceman-ship-accuracy");
+const alienShip = document.getElementById("alien-ship");
+const alienShipHull = document.getElementById("alien-ship-hull");
+const attackBtn = document.getElementById("attachBtn");
+const retreatBtn = document.getElementById("retreatBtn");
+const quitBtn = document.getElementById("quitBtn");
+
+//Setting Class Ship for Spaceman ship
+class Ship {
+    constructor (hull, firePower, accuracy, retreatProbability) {
+        this.hull = hull;
+        this.firePower = firePower;
+        this.accuracy = accuracy;
+        this.retreatProbability = retreatProbability;
+        
+    }
+    attack(targetShip) {
+        if (Math.random() <= this.accuracy) {    //use the this keyword to refer to the instance being created
+            targetShip.hull -= this.firePower;   //reduce target ship hull by firepower
+            console.log("Attack successful!");
+            console.log(`Target ship hull: ${targetShip.hull}`);
+            
+        } else {
+            console.log("Attack missed!");
+
+        }
+    }
+    retreat() {
+        if (Math.random() < globalThis.retreatProbability) {
+            this.hull += getRandomIntInclusive(1, 4);
+        }
+    }
 }
 
 
@@ -41,30 +82,10 @@ console.log('attack');
 //             return false;
 //         }
 //     }
-// }
+// }, 
 
 
 
-
-class Ship {
-    constructor (hull, firePower, accuracy) {
-        this.hull = hull;
-        this.firePower = firePower;
-        this.accuracy = accuracy;
-
-    }
-    attack(targetShip) {
-        if (Math.random() <= this.accuracy) {    //use the this keyword to refer to the instance being created
-            targetShip.hull -= this.firePower;   //reduce target ship hull by firepower
-            console.log("Attack successful!");
-            console.log(`Target ship hull: ${targetShip.hull}`);
-            
-        } else {
-            console.log("Attack missed!");
-
-        }
-    }
-}
 
 
 ///////////// Building the Alien SpacemanShip - game object 
