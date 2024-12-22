@@ -14,9 +14,7 @@ let alienStuGame = {
                 }
             },
         };
-   
-
-// console.log('attack');
+console.log('attack');
 
 
 //Setting the Class Alien Ship objects with constructor
@@ -36,6 +34,9 @@ let alienStuGame = {
 //         }
 //     }
 // }
+
+
+
 
 class Ship {
     constructor (hull, firePower, accuracy) {
@@ -58,14 +59,14 @@ class Ship {
 }
 
 
-///////////// Building the Alien SpaceShip - game object 
+///////////// Building the Alien SpacemanShip - game object 
 let gameObject = {
     targetShip: 0,
     round: 0,
     userInput: ""
 }
 
-//Setting the array to hold Alien Spaceship
+//Setting the array to hold Alien Spacemanship
 
 const alienShips = [];                      //six alien ships
 const alienHullValues = [3, 4, 5, 6];       // hullValues between 3 and 6
@@ -103,7 +104,7 @@ let createAlienShip = () => {
 
 
 //Using "extends" keyword to inherit all methods from another class
-class PlayerShip extends Ship {
+class SpacemanShipShip extends Ship {
     
 
 
