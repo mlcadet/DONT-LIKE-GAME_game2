@@ -8,6 +8,8 @@ console.log(Math.ceil(3, 7));   //output 3
 console.log(Math.floor(3, 7));  //output 3
 console.log(getRandomIntInclusive(1, 6)) //output 2
 
+
+
 //Initializing the DOM
 const spacemanShip = document.getElementById("spaceman-ship");
 const spacemanShipHull = document.getElementById("spaceman-ship-hull");
@@ -20,7 +22,7 @@ const retreatBtn = document.getElementById("retreatBtn");
 const quitBtn = document.getElementById("quitBtn");
 
 //Setting Class Ship for Spaceman ship
-class Ship {
+class SpacemanShip {
     constructor (hull, firePower, accuracy, retreatProbability) {
         this.hull = hull;
         this.firePower = firePower;
@@ -31,7 +33,7 @@ class Ship {
     attack(targetShip) {
         if (Math.random() <= this.accuracy) {    //use the this keyword to refer to the instance being created
             targetShip.hull -= this.firePower;   //reduce target ship hull by firepower
-            console.log("Attack successful!");
+            console.log("Attack successful - We survive!");
             console.log(`Target ship hull: ${targetShip.hull}`);
             
         } else {
@@ -47,13 +49,12 @@ class Ship {
 }
 
 
-//Setting the Alien STUGAME object
-let alienStuGame = {
-    name: "Alien StuGame",
+//Setting the Spaceman player object
+let spacemanTheDestroyer = {
+    name: "SpacemanTheDestroyer",
     hull: 20,
     firePower: 5,
     accuracy: 0.7,
-    isAlive: true,
     attack() {                             //add another property attack
         let attackChance = Math.random();  //To determine accuracy
         if (attackChance <= this.accuracy) {
@@ -63,28 +64,38 @@ let alienStuGame = {
                 }
             },
         };
-console.log('attack');
+    console.log('attack');
 
 
-//Setting the Class Alien Ship objects with constructor
-// class AlienShip {
-//     constructor (name, hull, firePower, accuracy) {
-//         this.name = name;               //use the this keyword to refer to the instance being created
-//         this.hull = hull;
-//         this.firePower = firePower;
-//         this.accuracy = accuracy;    
-//     }
-//     attack() {
-//         let accuracyCheck = Math.random();  //Math.radom checking accuracy - if the attack hits the target ship based on accuracy
-//         if (accuracyCheck <= this.accuracy) {
-//             return true;
-//         } else {
-//             return false;
-//         }
-//     }
-// }, 
 
 
+// Setting the Class Alien Ship objects with constructor
+class AlienShipShip {
+    constructor (TheDefender, hull, firePower, accuracy) {
+        this.name = TheDefender;               //use the this keyword to refer to the instance being created
+        this.hull = hull;
+        this.firePower = firePower;
+        this.accuracy = accuracy;    
+    }
+    attack(targetShip) {
+        if (Math.random() <= this.accuracy) {    //use the this keyword to refer to the instance being created
+            targetShip.hull -= this.firePower;   //reduce target ship hull by firepower
+            console.log("Attack successful - We survive!");
+            console.log(`Target ship hull: ${targetShip.hull}`);
+            
+        } else {
+            console.log("Attack missed!");
+
+        }
+    }
+    retreat() {
+        if (Math.random() < globalThis.retreatProbability) {
+            this.hull += getRandomIntInclusive(1, 4);
+        }
+    }
+}
+
+//Battle Simulation
 
 
 
@@ -132,17 +143,17 @@ let createAlienShip = () => {
 
 
 
-//Using "extends" keyword to inherit all methods from another class
-class SpacemanShipShip extends Ship {
+// Using "extends" keyword to inherit all methods from another class
+// class SpacemanShipShip extends Ship {
     
 
 
-}
+// }
 
 
-class AlienShip extends Ship {
-    get
-}
+// class AlienShip extends Ship {
+//     get
+// }
 
 
 //Setting the Alien Ship objects
