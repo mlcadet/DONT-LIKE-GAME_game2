@@ -21,7 +21,7 @@ const attackBtn = document.getElementById("attachBtn");
 const retreatBtn = document.getElementById("retreatBtn");
 const quitBtn = document.getElementById("quitBtn");
 
-//Setting Class Ship for Spaceman ship
+//---------------Setting Class Ship for Spaceman ship
 class SpacemanShip {
     constructor (hull, firePower, accuracy, retreatProbability) {
         this.hull = hull;
@@ -50,7 +50,7 @@ class SpacemanShip {
 }
 
 
-//Setting the Spaceman player object
+//---------------Setting the Spaceman player object
 let spacemanTheDestroyer = {
     name: "SpacemanTheDestroyer",
     hull: 20,
@@ -68,12 +68,12 @@ let spacemanTheDestroyer = {
     console.log('Attack Successful');
 
 
-//Setting USS Spaceman Assembly spaceship
+//---------------Setting USS Spaceman Assembly spaceship
 const ussAssembly = new SpacemanShip(20, 5, .7);
 
-//Generate the array for the alien ships
+                //Generate the array for the alien ships
 const alienShips = [];
-//Setting the alien ships
+                //Setting the alien ships
     for (let i=0; i < 6; i++);{ 
         const hull = Math.floor(Math.random() * 4) + 3; // Random hull between 3 and 6
         const firepower = Math.floor(Math.random() * 3) + 2; // Random firepower between 2 and 4
@@ -81,10 +81,10 @@ const alienShips = [];
  
 }
     
-ussAssembly.attack(alienShips[0]);
+//ussAssembly.attack(alienShips[0]);
 
 
-// Setting the Class Alien Ship objects with constructor
+//----------------- Setting the Class Alien Ship objects with constructor
 class AlienShip {
     constructor () {
         this.hull = Math.floor(Math.random() * (6 - 3 + 1 )) + 3;
@@ -180,18 +180,21 @@ class AlienShip {
 
 
 // Using "extends" keyword to inherit all methods from another class
-// class SpacemanShipShip extends Ship {
+class Ship {}
+class SpaceShip extends Ship {
     
+}
+ let s = new SpaceShip();
+console.log(s instanceof Ship);
 
 
-// }
+//Let instantiate SpacemanShip and AlienShip - NOT SHIP - 
+class ElienShip extends Ship {
+    
+}
+let a = new AlienShip();
 
 
-// class AlienShip extends Ship {
-//     get
-// }
 
-
-//Setting the Alien Ship objects
 
 
