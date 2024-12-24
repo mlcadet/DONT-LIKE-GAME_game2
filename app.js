@@ -201,20 +201,25 @@ class AlienShip {
 //--------------------Inheriting Constructors
 class Ship{
         //Now let add constructor to Spaceship
-    constructor() {
-        console.log('constructing Ships');
+    constructor(hullNum, firePowerNum, accuracyNum) {
+        this.hullNum = hullNum;
+        this.firePowerNum;
+        this.accuracyNum;
+        // console.log('constructing Ships');
     }
 } class SpaceShip extends Ship {
 
 }
 
+                                    
 class ElienShip extends Ship {
-    constructor(){
-        super();            //Calling a special function called SUPER - making sure ship's constructor get called first
-        console.log('constructing ElienShip');  //from there I get both constructors messages
+    constructor(hullNum, firePowerNum, accuracyNum){
+        super(hullNum, firePowerNum, accuracyNum);                    //1.---Calling a special function called SUPER - making sure ship's constructor get called first
+        // console.log('constructing ElienShip');  //2.---from there I get both constructors messages
     }
 }
 
-let e = new ElienShip();
+let e = new ElienShip('6, 4, 0.8');            //3.---let pass arguments into a constructor - elienFleet
             
-    
+console.log(e.hullNum);
+
