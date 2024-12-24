@@ -178,21 +178,22 @@ class AlienShip {
 
 
 
-
-// Using "extends" keyword to inherit all methods from another class
+//Let instantiate SpaceShip - NOT SHIP - 
+            // Using "extends" keyword to inherit all methods from another class
 class Ship {}
 class SpaceShip extends Ship {
     
 }
  let s = new SpaceShip();
-console.log(s instanceof Ship);
+console.log(s instanceof SpaceShip);
 
 
-//Let instantiate SpacemanShip and AlienShip - NOT SHIP - 
+//Let instantiate ElienShip - NOT SHIP - 
 class ElienShip extends Ship {
     
 }
-let a = new AlienShip();
+let e = new ElienShip();
+console.log(e instanceof ElienShip);
 
 
 
