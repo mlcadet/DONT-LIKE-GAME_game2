@@ -178,24 +178,43 @@ class AlienShip {
 
 
 
-//Let instantiate SpaceShip - NOT SHIP - 
+//----------------Let instantiate SpaceShip - NOT SHIP - 
             // Using "extends" keyword to inherit all methods from another class
-class Ship {}
-class SpaceShip extends Ship {
+// class Ship {}
+// class SpaceShip extends Ship {
     
+// }
+//  let s = new SpaceShip();
+// console.log(s instanceof SpaceShip);
+
+
+// //Let instantiate ElienShip - NOT SHIP - 
+// class ElienShip extends Ship {
+    
+// }
+// let e = new ElienShip();
+// console.log(e instanceof ElienShip);
+// console.log(e instanceof Object);
+
+
+
+//--------------------Inheriting Constructors
+class Ship{
+        //Now let add constructor to Spaceship
+    constructor() {
+        console.log('constructing Ships');
+    }
+} class SpaceShip extends Ship {
+
 }
- let s = new SpaceShip();
-console.log(s instanceof SpaceShip);
 
-
-//Let instantiate ElienShip - NOT SHIP - 
 class ElienShip extends Ship {
-    
+    constructor(){
+        super();            //Calling a special function called SUPER - making sure ship's constructor get called first
+        console.log('constructing ElienShip');  //from there I get both constructors messages
+    }
 }
+
 let e = new ElienShip();
-console.log(e instanceof ElienShip);
-
-
-
-
-
+            
+    
