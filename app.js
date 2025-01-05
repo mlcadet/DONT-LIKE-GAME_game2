@@ -4,8 +4,8 @@ const getRandomIntInclusive = (min, max) => {
     max = Math.floor(max);          //Math.floor() generate integer values with more control over their range
     return Math.floor(Math.random() * (max - min + 1) + min);   //Math.random() returns a pseudo-random floating-point number between 0 and 1
 }                                   //The maximum is exclusive and the minimum is inclusive   
-console.log(Math.ceil(3, 7));   //output 3
-console.log(Math.floor(3, 7));  //output 3
+console.log(Math.ceil(3, 6));   //output 3
+console.log(Math.floor(3, 6));  //output 3
 console.log(getRandomIntInclusive(1, 6)) //output 2
 
 
@@ -13,26 +13,25 @@ console.log(getRandomIntInclusive(1, 6)) //output 2
 //Initializing the DOM
 const spacemanShip = document.getElementById("spaceman-ship");
 const spacemanShipHull = document.getElementById("spaceman-ship-hull");
-const spacemanShipFirePower = document.getElementById("spaceman-ship-firePower");
 const spacemanShipAccuracy = document.getElementById("spaceman-ship-accuracy");
-const alienShip = document.getElementById("alien-ship");
+const aliens = document.getElementById("aliens");
 const alienShipHull = document.getElementById("alien-ship-hull");
 const attackBtn = document.getElementById("attachBtn");
 const retreatBtn = document.getElementById("retreatBtn");
 const quitBtn = document.getElementById("quitBtn");
 
 //---------------Setting Class Ship for Spaceman ship
-class SpacemanShip {
-    constructor (hull, firePower, accuracy, retreatProbability) {
+class Chip {
+    constructor (hull, firepower, accuracy, retreatProbability) {
         this.hull = hull;
-        this.firePower = firePower;
+        this.firePower = firepower;
         this.accuracy = accuracy;
         this.retreatProbability = retreatProbability;
         
     }
     attack(targetShip) {
         if (Math.random() <= this.accuracy) {    //use the this keyword to refer to the instance being created
-            targetShip.hull -= this.firePower;   //reduce target ship hull by firepower
+            targetShip.hull -= this.firepower;   //reduce target ship hull by firepower
             console.log("Attack successful - We survive!");
             console.log(`Target ship hull: ${targetShip.hull}`);
             
@@ -69,7 +68,7 @@ let spacemanTheDestroyer = {
 
 
 //---------------Setting USS Spaceman Assembly spaceship
-const ussAssembly = new SpacemanShip(20, 5, .7);
+// const ussAssembly = new SpacemanShip(20, 5, .7);  //not defined
 
                 //Generate the array for the alien ships
 const alienShips = [];
@@ -77,9 +76,9 @@ const alienShips = [];
     for (let i=0; i < 6; i++);{ 
         const hull = Math.floor(Math.random() * 4) + 3; // Random hull between 3 and 6
         const firepower = Math.floor(Math.random() * 3) + 2; // Random firepower between 2 and 4
-        const accuracy = Math.random() * 0.2 + 0.6; // Random accuracy between 0.6 and 0.8
+        const accuracy = Math.random() * (0.8 - 0.6) + 0.6; // Random accuracy between 0.6 and 0.8
  
-}
+}                       //Math.floor(Math.random() * (max - min + 1) + min); 
     
 //ussAssembly.attack(alienShips[0]);
 
@@ -95,7 +94,7 @@ class AlienShip {
         if (Math.random() <= this.accuracy) {    //use the this keyword to refer to the instance being created
             targetShip.hull -= this.firePower;   //reduce target ship hull by firepower
             console.log("Alien Attack!! Survived!");
-            
+            console.log(`Target ship hull: ${targetShip.hull}`);
             
         } else {
             console.log("Alien Target!!! Missed");
@@ -106,31 +105,22 @@ class AlienShip {
 
 
 
-
-
-
-
-
 //Battle the alien Ships
-// for (let i=0; i < alienShips.length; i++) {
-//     const alienShip = alienShips[i];
+for (let i=0; i < alienShips.length; i++) {
+    const alienShip = alienShips[i];
     
-//     ussAssembly.attack(alienShip);      //player attack!!
+    ussAssembly.attack(alienShip);      //player attack!!
     
-//     if (alienShip.hull <=0 ) {
-//         console.log("AlienShip destroyed!");
-//     } else {
+    if (alienShip.hull <=0 ) {
+        console.log("AlienShip destroyed!");
+    } else {
        
-//         alienShip.attack(ussAssembly);  //Alien return fire!
-//         if (ussAssembly.hull <=0) {
-//             console.log("Retreat! Retreat! Mission aborted!!")
-//         }
-//     }
-// }
-
-
-
-
+        alienShip.attack(ussAssembly);  //Alien return fire!
+        if (ussAssembly.hull <=0) {
+            console.log("Retreat! Retreat! Mission aborted!!")
+        }
+    }
+}
 
 
 
@@ -165,61 +155,42 @@ class AlienShip {
 
 
 
-// let alienShip = new AlienShip('ship1', 'survive');        //Create a new instance of AlienShip (AS)
-// console.log('alienShip: ' + alienShip.name + ' ' + alienShip.hull);
+let alienShip = new AlienShip('ship1', 'survive');        //Create a new instance of AlienShip (AS)
+console.log('alienShip: ' + alienShip.name + ' ' + alienShip.hull);
 
 
-// alienShip.maxHeight = 2000;  //adding property to a class
+alienShip.maxHeight = 2000;  //adding property to a class
 
-// let alienShip2 = new AlienShip('ship2', 'ship2');       //Static Property or class property
-// console.log(alienShip.name + ' ' + alienShip2.name);
-// console.log(alienShip.maxHeight);
+let alienShip2 = new AlienShip('ship2', 'ship2');       //Static Property or class property
+console.log(alienShip.name + ' ' + alienShip2.name);
+console.log(alienShip.maxHeight);
 
 
 
 
 //----------------Let instantiate SpaceShip - NOT SHIP - 
             // Using "extends" keyword to inherit all methods from another class
-// class Ship {}
-// class SpaceShip extends Ship {
+class Ship {}
+class SpaceShip extends Ship {
     
-// }
-//  let s = new SpaceShip();
-// console.log(s instanceof SpaceShip);
+}
+ let s = new SpaceShip();
+console.log(s instanceof SpaceShip);
 
 
-// //Let instantiate ElienShip - NOT SHIP - 
-// class ElienShip extends Ship {
+//Let instantiate ElienShip - NOT SHIP - 
+class ElienShip extends Ship {
     
-// }
-// let e = new ElienShip();
-// console.log(e instanceof ElienShip);
-// console.log(e instanceof Object);
+}
+let e = new ElienShip();
+console.log(e instanceof ElienShip);
+console.log(e instanceof Object);
 
 
 
 //--------------------Inheriting Constructors
-class Ship{
-        //Now let add constructor to Spaceship
-    constructor(hullNum, firePowerNum, accuracyNum) {
-        this.hullNum = hullNum;
-        this.firePowerNum;
-        this.accuracyNum;
-        // console.log('constructing Ships');
-    }
-} class SpaceShip extends Ship {
 
-}
 
-                                    
-class ElienShip extends Ship {
-    constructor(hullNum, firePowerNum, accuracyNum){
-        super(hullNum, firePowerNum, accuracyNum);                    //1.---Calling a special function called SUPER - making sure ship's constructor get called first
-        // console.log('constructing ElienShip');  //2.---from there I get both constructors messages
-    }
-}
-
-let e = new ElienShip('6, 4, 0.8');            //3.---let pass arguments into a constructor - elienFleet
-            
-console.log(e.hullNum);
+ 
+//-------------------Using Inheriting Methods to create new ship
 
