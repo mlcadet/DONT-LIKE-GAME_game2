@@ -20,6 +20,7 @@ const attackBtn = document.getElementById("attachBtn");
 const retreatBtn = document.getElementById("retreatBtn");
 const quitBtn = document.getElementById("quitBtn");
 
+
 //---------------Setting Class Ship for Spaceman ship
 class Chip {
     constructor (hull, firepower, accuracy, retreatProbability) {
@@ -31,7 +32,7 @@ class Chip {
     }
     attack(targetShip) {
         if (Math.random() <= this.accuracy) {    //use the this keyword to refer to the instance being created
-            targetShip.hull -= this.firepower;   //reduce target ship hull by firepower
+            targetShip.hull -= this.firePower;   //reduce target ship hull by firepower
             console.log("Attack successful - We survive!");
             console.log(`Target ship hull: ${targetShip.hull}`);
             
@@ -126,31 +127,62 @@ for (let i=0; i < alienShips.length; i++) {
 
 
 ///////////// Building the Alien SpacemanShip - game object 
-// let gameObject = {
-//     targetShip: 0,
-//     round: 0,
-//     userInput: ""
-// }
+let gameObject = {
+    targetShip: 0,
+    round: 0,
+    userInput: ""
+}
 
 //Setting the array to hold Alien Spacemanship
 
-// const alienShips = [];                      //six alien ships
-// const alienHullValues = [3, 4, 5, 6];       // hullValues between 3 and 6
-// const alienFirePowerValues = [2, 3, 4];     //firepower between 2 and 4
-// const alienAccValues = [0.6, 0.7, 0.8];     //Accuracy between 0.6 and 0.8
+//const alienShips = [];                      //six alien ships
+const alienHullValues = [3, 4, 5, 6];       // hullValues between 3 and 6
+const alienFirePowerValues = [2, 3, 4];     //firepower between 2 and 4
+const alienAccValues = [0.6, 0.7, 0.8];     //Accuracy between 0.6 and 0.8
 
-// let createAlienShip = () => {
-//     for (let i = 0; i < 6; i++) {
-//         let name = "Alien Ship number" + (i + 1);                                   //Six alien ships
-//         let hull = alienHullValues[Math.floor(Math.random() * 4) + 3];              //Random hul between 3 and 6
-//         let firePower = alienFirePowerValues[Math.floor(Math.random() * 3) + 2];    //Random accuracy between 2 and 4
-//         let accuracy = Math.random() * 0.2 + 0.6;                                   //Random accuracy between 0.6 and 0.8 
-//         let alienShips = new Ship(name, hull, firePower, accuracy);
-//         alienShips.push(alienShip);
+ let createAlienShip = () => {
+    for (let i = 0; i < 6; i++) {
+        let name = "Alien Ship number" + (i + 1);                                   //Six alien ships
+        let hull = alienHullValues[Math.floor(Math.random() * 4) + 3];              //Random hul between 3 and 6
+        let firePower = alienFirePowerValues[Math.floor(Math.random() * 3) + 2];    //Random accuracy between 2 and 4
+        let accuracy = Math.random() * 0.2 + 0.6;                                   //Random accuracy between 0.6 and 0.8 
+        let alienShips = new Ship(name, hull, firePower, accuracy);
+        alienShips.push(alienShip);
 
-//     }
-          
-// };
+    }
+}      
+
+
+// Battle the alien ships
+for (let i = 0; i < alienShips.length; i++) {
+    const alienShip = alienShips[i];
+
+
+// Attack the first alien ship with the USS Assembly
+spacemanShip.attack(alienShips[0]);
+
+// Check if the alien ship is destroyed
+if (alienShip.hull <= 0) {
+    console.log("Alien ship destroyed!");
+  } else {
+    // Alien's turn to attack
+    alienShip.attack(ussAssembly);
+ 
+    // Check if the USS Assembly is destroyed
+    if (spacemanShip.hull <= 0) {
+      console.log("Game over! The USS Assembly has been destroyed.");
+      break;
+
+}
+  }
+}
+
+// Check if the player has destroyed all alien ships
+if (alienShips.every((alienShip) => alienShip.hull <= 0)) {
+    console.log("Congratulations! You have destroyed all alien ships.");
+  } else {
+    ussAssembly.retreat();
+  }
 
 
 
@@ -185,12 +217,4 @@ class ElienShip extends Ship {
 let e = new ElienShip();
 console.log(e instanceof ElienShip);
 console.log(e instanceof Object);
-
-
-
-//--------------------Inheriting Constructors
-
-
- 
-//-------------------Using Inheriting Methods to create new ship
 
